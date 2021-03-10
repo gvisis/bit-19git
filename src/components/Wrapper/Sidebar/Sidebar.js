@@ -1,5 +1,6 @@
 import React from 'react';
 import './sidebar.css';
+import studentsData from './students';
 
 function Sidebar() {
     return (
@@ -7,6 +8,11 @@ function Sidebar() {
             { studentai}
         </div>
     );
+}
+
+for (const { name, url } of studentsData) {
+    console.log(name);
+    console.log(url);
 }
 
 function studentai() {
@@ -18,7 +24,6 @@ function studentai() {
         <span>Vardas</span>
         </a>`);
     }
-    console.log(allStudents);
     return allStudents;
 }
 
