@@ -1,0 +1,7 @@
+.wrapper {
+  background-color: pink;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(200px, 1fr));
+  grid-template-rows: repeat(6, minmax(80px, 1fr));
+  grid-gap: 15px;
+}
