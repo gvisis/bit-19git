@@ -4,29 +4,23 @@
   grid-column: 1;
   grid-row: span 6;
   flex-direction: column;
-  border-radius: 15px;
-  padding: 0 10px;
-  margin-top: 1rem;
-  max-height: 600px;
-  max-width: 250px;
+  max-height: 80vh;
+  max-width: 300px;
   overflow: auto;
   white-space: nowrap;
-  background-color: red;
-  border: 1px solid black;
+  background-color: #fff;
 }
 .student-list .student {
   display: flex;
   align-items: center;
-  background-color: aqua;
-  padding: 5px;
-  margin: 10px 0;
-  border: 1px solid #24292e;
+  padding: 10px;
+  border-bottom: 1px solid #d5dfe8;
   color: #24292e;
   transition: all 0.2s ease;
   text-decoration: none;
 }
 .student-list .student:hover {
-  background-color: green;
+  background-color: #d7dce0;
 }
 .student-list .student img {
   width: 22px;

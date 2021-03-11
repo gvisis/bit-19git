@@ -1,43 +1,37 @@
 @import '../../../variables';
 
 .student-list {
-  width: 100%;
-  display: flex;
-  grid-column: 1;
-  grid-row: span 6;
-  flex-direction: column;
-  border-radius: 15px;
-  padding: 0 10px;
-  margin-top: 1rem;
-  max-height: 600px;
-  max-width: 250px;
-  overflow: auto;
-  white-space: nowrap;
-  background-color: red;
-  border: 1px solid black;
-
-  .student {
+    width: 100%;
     display: flex;
-    align-items: center;
-    background-color: aqua;
-    padding: 5px;
-    margin: 10px 0;
-    border: 1px solid $bg-color;
-    color: $bg-color;
-    transition: all 0.2s ease;
-    text-decoration: none;
-    &:hover {
-      background-color: green;
+    grid-column: 1;
+    grid-row: span 6;
+    flex-direction: column;
+    max-height: 80vh;
+    max-width: 300px;
+    overflow: auto;
+    white-space: nowrap;
+    background-color: #fff;
+
+    .student {
+        display: flex;
+        align-items: center;
+        padding: 10px;
+        border-bottom: 1px solid darken($bg-color, 10%);
+        color: $header-bg-color;
+        transition: all 0.2s ease;
+        text-decoration: none;
+        &:hover {
+            background-color: lighten($header-bg-color, 70%);
+        }
+        img {
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            margin-left: 10px;
+        }
+        span {
+            margin-left: 15px;
+            line-height: 1rem;
+        }
     }
-    img {
-      width: 22px;
-      height: 22px;
-      border-radius: 50%;
-      margin-left: 10px;
-    }
-    span {
-      margin-left: 15px;
-      line-height: 1rem;
-    }
-  }
 }
