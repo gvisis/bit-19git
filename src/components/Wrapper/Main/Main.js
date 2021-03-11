@@ -1,47 +1,41 @@
 import React from 'react';
 import './main.css';
 import useFetch from '../../../useFetch';
+import repos from '../../../data/repos';
 
-export default function Main() {
-    const { data } = useFetch('https://api.github.com/users/gvisis');
-    console.log(data);
-
+export default function Main({ starred, gvisis }) {
+    // const { repos, isPending, error } = useFetch(
+    //     'https://api.github.com/users/gvisis/repos?sort=created&per_page=10'
+    // );
+    console.log(repos);
     return (
-        <main className='main-content-wrap'>
-            <div className='user-header'>
-                <img
-                    src='https://avatars.githubusercontent.com/u/31749032?s=460&u=efe3f0e7d3f9f4be8199f51f1377bc58799b8e31&v=4'
-                    alt='user'
-                />
-                <div className='user-info'>
-                    <h3 className='user-name'>Name</h3>
-                    <div className='followers'>8 followers</div>
-                    <div className='following'>4 following</div>
-                    <div className='stars'>stars 33</div>
+        <>
+            {/* {isPending && <div>Loading</div>}
+            {error && <div>{error}</div>} */}
+            <main className='main-content-wrap'>
+                <div className='user-header'>
+                    <img src={gvisis.avatar_url} alt={gvisis.login} />
+                    <div className='user-info'>
+                        <a href={gvisis.html_url} className='user-name' alt={gvisis.login}>
+                            {gvisis.login}
+                        </a>
+                        <div className='followers'>{gvisis.followers} followers</div>
+                        <div className='following'>{gvisis.following} following</div>
+                        <div className='stars'>{starred} starred</div>
+                    </div>
                 </div>
-            </div>
-            <div className='user-repo-wrap'>
-                <div className='user-repo'>
-                    <h3>bank</h3>
-                    <p>php homework</p>
-                    <p>PHP updated 2 hours ago</p>
+                <div className='user-repo-wrap'>
+                    {repos.map((repo) => (
+                        <div className='user-repo'>
+                            <a href={repo.html_url}>{repo.name}</a>
+                            <p>{repo.description}</p>
+                            <p>
+                                {repo.language} {repo.updated_at}
+                            </p>
+                        </div>
+                    ))}
                 </div>
-                <div className='user-repo'>
-                    <h3>bank</h3>
-                    <p>php homework</p>
-                    <p>PHP updated 2 hours ago</p>
-                </div>
-                <div className='user-repo'>
-                    <h3>bank</h3>
-                    <p>php homework</p>
-                    <p>PHP updated 2 hours ago</p>
-                </div>
-                <div className='user-repo'>
-                    <h3>bank</h3>
-                    <p>php homework</p>
-                    <p>PHP updated 2 hours ago</p>
-                </div>
-            </div>
-        </main>
+            </main>
+        </>
     );
 }

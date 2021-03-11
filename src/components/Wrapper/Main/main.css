@@ -28,6 +28,13 @@
 .main-content-wrap .user-header .user-info .user-name {
   width: 100%;
   margin: 0;
+  text-decoration: none;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #000;
+}
+.main-content-wrap .user-header .user-info .user-name:hover {
+  text-decoration: underline;
 }
 .main-content-wrap .user-header .user-info .followers,
 .main-content-wrap .user-header .user-info .following,

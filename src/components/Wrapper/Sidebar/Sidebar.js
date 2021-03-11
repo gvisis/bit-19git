@@ -1,20 +1,16 @@
 import React from 'react';
 import './sidebar.css';
-import students from './students.json';
+import studentai from '../../../data/gvisis.json';
 
-function Sidebar() {
+function Sidebar({ gvisis }) {
     return (
         <div className='student-list'>
-            {students.map((student) => (
-                <a className='student' href={student.url}>
-                    <img
-                        src='https://avatars.githubusercontent.com/u/31749032?s=460&u=efe3f0e7d3f9f4be8199f51f1377bc58799b8e31&v=4'
-                        alt={student.name}
-                    />
-                    <span>{student.name}</span>
+            {gvisis && (
+                <a className='student' href={`${gvisis.html_url}`} key={gvisis.id}>
+                    <img src={gvisis.avatar_url} alt={gvisis.name} />
+                    <span>{gvisis.login}</span>
                 </a>
-            ))}
-            ;
+            )}
         </div>
     );
 }

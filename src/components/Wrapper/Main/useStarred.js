@@ -1,8 +1,9 @@
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import axios from 'axios';
+import parse from 'github-parse-link';
 
-const useFetch = (url) => {
-    const [data, setData] = useState(null);
+const useStarred = (url) => {
+    const [result, setResult] = useState(null);
     const [isPending, setIsPending] = useState(true);
     const [error, setErorr] = useState(null);
 
@@ -14,7 +15,7 @@ const useFetch = (url) => {
                 }
                 setIsPending(false);
                 setErorr(null);
-                setData(res.data);
+                setResult(parse(res.headers.link)['last'].split('&page=')[1]);
             })
             .catch((err) => {
                 if (err.name === 'AbortError') {
@@ -25,7 +26,7 @@ const useFetch = (url) => {
                 }
             });
     }, [url]);
-    return { data, isPending, Error };
+    return { result, isPending, Error };
 };
 
-export default useFetch;
+export default useStarred;
