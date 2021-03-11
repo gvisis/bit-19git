@@ -2,7 +2,6 @@
   width: 100%;
   display: flex;
   grid-column: 1;
-  grid-row: span 6;
   flex-direction: column;
   max-height: 80vh;
   max-width: 300px;
@@ -31,4 +30,5 @@
 .student-list .student span {
   margin-left: 15px;
   line-height: 1rem;
+  padding: 5px;
 }
