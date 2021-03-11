@@ -1,7 +1,11 @@
 import React from 'react';
 import './main.css';
+import useFetch from '../../../useFetch';
 
 export default function Main() {
+    const { data } = useFetch('https://api.github.com/users/gvisis');
+    console.log(data);
+
     return (
         <main className='main-content-wrap'>
             <div className='user-header'>
