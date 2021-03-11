@@ -1,4 +1,5 @@
 @import '../../../variables';
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400&display=swap');
 @mixin row-card {
     padding: 15px;
     border: 1px solid darken($bg-color, 10%);
@@ -9,18 +10,29 @@
 .main-content-wrap {
     grid-column: auto / span 9;
     display: grid;
-    grid-template-rows: repeat(6, minmax(100px, 1fr));
+    grid-template-rows: repeat(6, minmax(100px, 200px));
 
+    .title {
+        width: 100%;
+        margin: 0;
+        text-decoration: none;
+        font-size: 1.3rem;
+        font-weight: 600;
+        color: #000;
+        &:hover {
+            text-decoration: underline;
+        }
+    }
     .user-header {
         @include row-card;
         grid-row: auto / span 1;
         display: flex;
         align-items: center;
         background-color: darken($bg-color, 4%);
-        margin: 20px 0;
+        // margin: 20px 0;
 
         img {
-            width: 50px;
+            width: 100px;
             border-radius: 50%;
             margin: 15px;
         }
@@ -31,17 +43,6 @@
             padding: 15px;
             width: 100%;
 
-            .user-name {
-                width: 100%;
-                margin: 0;
-                text-decoration: none;
-                font-size: 1.3rem;
-                font-weight: 600;
-                color: #000;
-                &:hover {
-                    text-decoration: underline;
-                }
-            }
             .followers,
             .following,
             .stars {
@@ -57,8 +58,15 @@
             background-color: #fff;
             @include row-card;
             h3,
-            p {
-                margin: 0 0 15px;
+            .repo-descr {
+                font-size: 14px;
+                margin: 5px 0 10px;
+            }
+            .repo-language,
+            .repo-update {
+                font-size: 12px;
+                font-family: 'Open Sans', sans-serif;
+                margin-right: 10px;
             }
         }
     }

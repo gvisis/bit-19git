@@ -1,7 +1,19 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400&display=swap");
 .main-content-wrap {
   grid-column: auto/span 9;
   display: grid;
-  grid-template-rows: repeat(6, minmax(100px, 1fr));
+  grid-template-rows: repeat(6, minmax(100px, 200px));
+}
+.main-content-wrap .title {
+  width: 100%;
+  margin: 0;
+  text-decoration: none;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #000;
+}
+.main-content-wrap .title:hover {
+  text-decoration: underline;
 }
 .main-content-wrap .user-header {
   padding: 15px;
@@ -12,10 +24,9 @@
   display: flex;
   align-items: center;
   background-color: #e9eef3;
-  margin: 20px 0;
 }
 .main-content-wrap .user-header img {
-  width: 50px;
+  width: 100px;
   border-radius: 50%;
   margin: 15px;
 }
@@ -24,17 +35,6 @@
   flex-wrap: wrap;
   padding: 15px;
   width: 100%;
-}
-.main-content-wrap .user-header .user-info .user-name {
-  width: 100%;
-  margin: 0;
-  text-decoration: none;
-  font-size: 1.3rem;
-  font-weight: 600;
-  color: #000;
-}
-.main-content-wrap .user-header .user-info .user-name:hover {
-  text-decoration: underline;
 }
 .main-content-wrap .user-header .user-info .followers,
 .main-content-wrap .user-header .user-info .following,
@@ -54,6 +54,13 @@
   margin-bottom: 15px;
 }
 .main-content-wrap .user-repo-wrap .user-repo h3,
-.main-content-wrap .user-repo-wrap .user-repo p {
-  margin: 0 0 15px;
+.main-content-wrap .user-repo-wrap .user-repo .repo-descr {
+  font-size: 14px;
+  margin: 5px 0 10px;
+}
+.main-content-wrap .user-repo-wrap .user-repo .repo-language,
+.main-content-wrap .user-repo-wrap .user-repo .repo-update {
+  font-size: 12px;
+  font-family: "Open Sans", sans-serif;
+  margin-right: 10px;
 }

@@ -13,7 +13,7 @@ function Wrapper() {
         <div className='wrapper'>
             {error && <div>{error}</div>}
             {isPending && <div>Loading</div>}
-            {/* {gvisis && <Sidebar students={gvisis} />} */}
+            <Sidebar gvisis={gvisis} />
             {result && <Main starred={result} gvisis={gvisis} />}
         </div>
     );

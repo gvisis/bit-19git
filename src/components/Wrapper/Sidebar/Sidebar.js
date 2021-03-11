@@ -1,8 +1,8 @@
 import React from 'react';
 import './sidebar.css';
-import studentai from '../../../data/gvisis.json';
 
 function Sidebar({ gvisis }) {
+    console.log(gvisis);
     return (
         <div className='student-list'>
             {gvisis && (
