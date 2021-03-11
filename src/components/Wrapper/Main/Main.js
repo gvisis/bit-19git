@@ -10,10 +10,10 @@ export default function Main() {
                     alt='user'
                 />
                 <div className='user-info'>
-                    <span className='user-name'>Name</span>
-                    <span className='followers'>8 followers</span>
-                    <span className='following'>4 following</span>
-                    <span className='stars'>stars 33</span>
+                    <h3 className='user-name'>Name</h3>
+                    <div className='followers'>8 followers</div>
+                    <div className='following'>4 following</div>
+                    <div className='stars'>stars 33</div>
                 </div>
             </div>
             <div className='user-repo-wrap'>
