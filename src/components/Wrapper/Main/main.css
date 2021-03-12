@@ -1,8 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400&display=swap");
 .main-content-wrap {
-  grid-column: auto/span 9;
-  display: grid;
-  grid-template-rows: repeat(6, minmax(100px, 200px));
+  grid-column: auto/span 8;
+  margin-bottom: 50px;
 }
 .main-content-wrap .title {
   width: 100%;
@@ -16,14 +15,28 @@
   text-decoration: underline;
 }
 .main-content-wrap .user-header {
-  padding: 15px;
+  padding: 15px 15px 15px 30px;
   border: 1px solid #d5dfe8;
   border-radius: 10px;
   margin-bottom: 15px;
+  position: relative;
   grid-row: auto/span 1;
   display: flex;
   align-items: center;
   background-color: #e9eef3;
+}
+.main-content-wrap .user-header:hover:not(.user-header) {
+  background-color: #f6f8fa;
+}
+.main-content-wrap .user-header:hover:not(.user-header)::after {
+  position: absolute;
+  content: "";
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 15px;
+  border-radius: 0 10px 10px 0;
+  background-color: #515c67;
 }
 .main-content-wrap .user-header img {
   width: 100px;
@@ -48,10 +61,24 @@
 }
 .main-content-wrap .user-repo-wrap .user-repo {
   background-color: #fff;
-  padding: 15px;
+  padding: 15px 15px 15px 30px;
   border: 1px solid #d5dfe8;
   border-radius: 10px;
   margin-bottom: 15px;
+  position: relative;
+}
+.main-content-wrap .user-repo-wrap .user-repo:hover:not(.user-header) {
+  background-color: #f6f8fa;
+}
+.main-content-wrap .user-repo-wrap .user-repo:hover:not(.user-header)::after {
+  position: absolute;
+  content: "";
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 15px;
+  border-radius: 0 10px 10px 0;
+  background-color: #515c67;
 }
 .main-content-wrap .user-repo-wrap .user-repo h3,
 .main-content-wrap .user-repo-wrap .user-repo .repo-descr {

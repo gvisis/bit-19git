@@ -1,17 +1,30 @@
 @import '../../../variables';
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400&display=swap');
+
 @mixin row-card {
-    padding: 15px;
+    padding: 15px 15px 15px 30px;
     border: 1px solid darken($bg-color, 10%);
     border-radius: 10px;
     margin-bottom: 15px;
+    position: relative;
+    &:hover:not(.user-header) {
+        background-color: $bg-color;
+    }
+    &:hover:not(.user-header)::after {
+        position: absolute;
+        content: '';
+        top: 0;
+        bottom: 0;
+        right: 0;
+        width: 15px;
+        border-radius: 0 10px 10px 0;
+        background-color: lighten($header-bg-color, 20%);
+    }
 }
 
 .main-content-wrap {
-    grid-column: auto / span 9;
-    display: grid;
-    grid-template-rows: repeat(6, minmax(100px, 200px));
-
+    grid-column: auto / span 8;
+    margin-bottom: 50px;
     .title {
         width: 100%;
         margin: 0;
@@ -29,7 +42,6 @@
         display: flex;
         align-items: center;
         background-color: darken($bg-color, 4%);
-        // margin: 20px 0;
 
         img {
             width: 100px;
