@@ -42,9 +42,9 @@ export default function Main() {
             {repos && (
                 <div className='user-repo-wrap'>
                     {repos.map((repo) => (
-                        <a className='title' href={repo.html_url}>
+                        <a className='title' href={repo.html_url} rel='noreferrer' target='_blank'>
                             <div className='user-repo' key={repo.id}>
-                                {repo.name}
+                                <h3>{repo.name}</h3>
                                 <p className='repo-descr'>{repo.description}</p>
                                 <span className='repo-language'>{repo.language} </span>
                                 <span className='repo-update'>

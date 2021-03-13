@@ -80,7 +80,12 @@
   border-radius: 0 10px 10px 0;
   background-color: #515c67;
 }
-.main-content-wrap .user-repo-wrap .user-repo h3,
+.main-content-wrap .user-repo-wrap .user-repo h3 {
+  margin: 0 0 10px 0;
+}
+.main-content-wrap .user-repo-wrap .user-repo h3:hover {
+  text-decoration: underline;
+}
 .main-content-wrap .user-repo-wrap .user-repo .repo-descr {
   font-size: 14px;
   margin: 5px 0 10px;

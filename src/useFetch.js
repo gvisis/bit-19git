@@ -1,36 +1,4 @@
 import { useState, useEffect } from 'react';
-import axios from 'axios';
-axios.defaults.headers.common['Authorization'] = 'ce4bfe1258c1b948cee6ea6a80a6075705f8fd48';
-
-// const useFetch = (url) => {
-//     const [data, setData] = useState(null);
-//     const [isLoading, setisLoading] = useState(true);
-//     const <div error,="" setErorr=""></div> = useState(null);
-
-//     useEffect(() => {
-//         axios(url)
-//             .then((res) => {
-//                 if (res.status > 200) {
-//                     throw Error('Could not fetch the data for that resource');
-//                 }
-//                 setisLoading(false);
-//                 setErorr(null);
-//                 setData(res.data);
-//             })
-//             .catch((err) => {
-//                 if (err.name === 'AbortError') {
-//                     console.log('fetch aborted');
-//                 } else {
-//                     setisLoading(false);
-//                     setErorr(err.message);
-//                 }
-//             });
-//     }, []);
-
-//     return { data, isLoading, Error };
-// };
-
-// import { useState, useEffect } from 'react';
 
 const useFetch = (url) => {
     const [data, setData] = useState(null);

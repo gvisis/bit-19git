@@ -69,7 +69,12 @@
         .user-repo {
             background-color: #fff;
             @include row-card;
-            h3,
+            h3 {
+                margin: 0 0 10px 0;
+            }
+            h3:hover {
+                text-decoration: underline;
+            }
             .repo-descr {
                 font-size: 14px;
                 margin: 5px 0 10px;
