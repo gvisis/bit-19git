@@ -1,9 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import '../css/main.css';
 import { useParams } from 'react-router-dom';
 import useFetch from '../../useFetch';
-import axios from 'axios';
-import { getDefaultNormalizer } from '@testing-library/dom';
 
 const convertedDate = (date) => {
     return new Date(date).toLocaleDateString();

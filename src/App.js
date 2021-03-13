@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import './App.css';
 import Header from './components/Header/Header';
 import Sidebar from './components/Sidebar/Sidebar';
@@ -8,8 +8,6 @@ import NotFound from './components/NotFound/NotFound';
 import students from './data/students';
 
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-
-import axios from 'axios';
 
 function App() {
     return (

@@ -1,9 +1,8 @@
-import { findByLabelText } from '@testing-library/dom';
 import { Link } from 'react-router-dom';
+
 import '../css/main.css';
 const NotFound = () => {
     const style = {
-        display: 'inline-block',
         width: '500px',
         display: 'flex',
         flexDirection: 'column',
