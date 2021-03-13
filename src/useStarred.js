@@ -28,5 +28,7 @@ const useStarred = (url) => {
     }, [url]);
     return { result, isPending, Error };
 };
-
+// const { result, isPending, error } = useStarred(
+//     'https://api.github.com/users/gvisis/starred?per_page=1'
+// );
 export default useStarred;

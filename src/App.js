@@ -1,30 +1,27 @@
+import React, { useEffect, useState } from 'react';
 import './App.css';
 import Header from './components/Header/Header';
 import Sidebar from './components/Sidebar/Sidebar';
 import Main from './components/Main/Main';
-import gvisis from './data/gvisis.json';
-import useStarred from './useStarred';
+import Home from './components/Home/Home';
+import NotFound from './components/NotFound/NotFound';
+import students from './data/students';
+
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
+import axios from 'axios';
+
 function App() {
-    const { result, isPending, error } = useStarred(
-        'https://api.github.com/users/gvisis/starred?per_page=1'
-    );
     return (
-        // {error && <div>{error}</div>}
-        // {isPending && <div>Loading</div>}
         <Router>
             <div className='App'>
                 <Header />
                 <div className='wrapper'>
-                    <Sidebar gvisis={gvisis} />
+                    <Sidebar students={students} />
                     <Switch>
-                        <Route path='/student/:login'>
-                            {result && <Main starred={result} gvisis={gvisis} />}
-                        </Route>
-                        {/* <Route path='*'>
-                            <NotFound />
-                        </Route> */}
+                        <Route path='/' exact component={Home} />
+                        <Route path='/student/:login' component={Main} />
+                        <Route path='*' component={NotFound} />
                     </Switch>
                 </div>
             </div>

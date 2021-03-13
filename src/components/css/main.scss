@@ -1,4 +1,4 @@
-@import '../../variables';
+@import './variables';
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400&display=swap');
 
 @mixin row-card {
@@ -29,12 +29,12 @@
         width: 100%;
         margin: 0;
         text-decoration: none;
-        font-size: 1.3rem;
+        font-size: 1rem;
         font-weight: 600;
         color: #000;
-        &:hover {
-            text-decoration: underline;
-        }
+    }
+    .title.name {
+        font-size: 1.3rem;
     }
     .user-header {
         @include row-card;

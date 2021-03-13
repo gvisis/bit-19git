@@ -1,61 +1,62 @@
-import React from 'react';
-import './main.css';
-import repos from '../../data/repos.json';
-import { useHistory, useParams } from 'react-router';
+import React, { useEffect, useState } from 'react';
+import '../css/main.css';
+import { useParams } from 'react-router-dom';
+import useFetch from '../../useFetch';
 import axios from 'axios';
+import { getDefaultNormalizer } from '@testing-library/dom';
 
 const convertedDate = (date) => {
     return new Date(date).toLocaleDateString();
 };
 
-export default function Main({ starred, gvisis }) {
+export default function Main() {
     const { login } = useParams();
 
-    const { studentName, id, html_url, avatar } = axios
-        .get('https://api.github.com/users/' + login)
-        .then((data) => {
-            console.log(data.data);
-            return {
-                studentName: data.data.name,
-                id: data.data.id,
-                html_url: data.data.html_url,
-                avatar: data.data.avatar_url,
-            };
-        })
-        .catch((err) => console.log(err.message));
+    const { data, error, isPending } = useFetch(`https://api.github.com/users/${login}`);
+    const { data: repos } = useFetch(
+        `https://api.github.com/users/${login}/repos?sort=created&per_page=15`
+    );
 
-    console.log(studentName);
+    const style = {
+        backgroundColor: 'lightpink',
+    };
     return (
-        <>
-            {/* {isPending && <div>Loading</div>}
-            {error && <div>{error}</div>} */}
-            <main className='main-content-wrap'>
+        <main className='main-content-wrap'>
+            {isPending && <div className='user-header'>Loading content...</div>}
+            {error && (
+                <div style={style} className='user-header'>
+                    {error}
+                </div>
+            )}
+            {data && repos && (
                 <div className='user-header'>
-                    <img src={avatar} alt={login} />
+                    <img src={data.avatar_url} alt={data.login} />
                     <div className='user-info'>
-                        <a href={html_url} className='title' alt={login}>
-                            {login}
+                        <a href={data.html_url} className='title' alt={data.login}>
+                            <div className='title name'>{data.name ? data.name : ''}</div>
+                            {data.login}
                         </a>
-                        <div className='followers'>{gvisis.followers} followers</div>
-                        <div className='following'>{gvisis.following} following</div>
-                        <div className='stars'>{starred} starred</div>
+                        <div className='followers'>{data.followers} followers</div>
+                        <div className='following'>{data.following} following</div>
                     </div>
                 </div>
-                {/* <div className='user-repo-wrap'>
+            )}
+            {repos && (
+                <div className='user-repo-wrap'>
                     {repos.map((repo) => (
-                        <div className='user-repo' key={repo.id}>
-                            <a className='title' href={repo.html_url}>
+                        <a className='title' href={repo.html_url}>
+                            <div className='user-repo' key={repo.id}>
                                 {repo.name}
-                            </a>
-                            <p className='repo-descr'>{repo.description}</p>
-                            <span className='repo-language'>{repo.language} </span>
-                            <span className='repo-update'>
-                                Last updated: {convertedDate(repo.updated_at)}
-                            </span>
-                        </div>
+                                <p className='repo-descr'>{repo.description}</p>
+                                <span className='repo-language'>{repo.language} </span>
+                                <span className='repo-update'>
+                                    Last updated: {convertedDate(repo.updated_at)}
+                                </span>
+                            </div>
+                        </a>
                     ))}
-                </div> */}
-            </main>
-        </>
+                </div>
+            )}
+        </main>
     );
 }
