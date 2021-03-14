@@ -11,7 +11,7 @@ function Header() {
             </Link>
             <span>BIT Group 19</span>
             <div className='search-box'>
-                <input type='search' placeholder='Search... Not working' />
+                <input type='search' placeholder='Search... Not working.. Yet' />
             </div>
         </header>
     );
