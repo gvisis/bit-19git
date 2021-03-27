@@ -1,13 +1,13 @@
-.wrapper {
-  display: grid;
-  grid-template-columns: repeat(12, minmax(50px, 1fr));
-  grid-gap: 15px;
-  margin: 0 50px;
-}
-
 body {
   margin: 0;
   padding: 0;
   height: 100vh;
   background-color: #f6f8fa;
+}
+
+.wrapper {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(50px, 1fr));
+  grid-gap: 15px;
+  margin: 0 50px;
 }
